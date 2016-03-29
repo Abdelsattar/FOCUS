@@ -13,41 +13,35 @@ public class Constants {
 
     // Table Names
     public static final String TABLE_TASK = "tasks";
-    public static final String TABLE_TAG = "tags";
-    public static final String TABLE_TODO_TAG = "todo_tags";
-
-    // Common column names
-    public static final String KEY_ID = "id";
-    public static final String KEY_CREATED_AT = "created_at";
+    public static final String TABLE_Sub_TASK = "sub_tasks";
 
     // NOTES Table - column nmaes
     public static final String KEY_TASK = "task";
+    public static final String KEY_ID = "id";
 
-    public static final String KEY_STATUS = "status";
-
-    // TAGS Table - column names
-    public static final String KEY_TAG_NAME = "tag_name";
-
-    // NOTE_TAGS Table - column names
-    public static final String KEY_TODO_ID = "todo_id";
-    public static final String KEY_TAG_ID = "tag_id";
+    public static final String KEY_SUB_TASK = "sub_task";
+    public static final String KEY_SUB_TASK_PARENT_ID  = "parent_id";
 
     // Table Create Statements
     // Todo table create statement
-    public static final String CREATE_TABLE_TODO = "CREATE TABLE "
+    public static final String CREATE_TABLE_TASK = "CREATE TABLE "
             + TABLE_TASK + "(" + KEY_ID + " INTEGER PRIMARY KEY," + KEY_TASK
-            + " TEXT," + KEY_STATUS + " INTEGER," + KEY_CREATED_AT
-            + " DATETIME" + ")";
+            + " TEXT )";
+
+    public static final String CREATE_TABLE_SUB_TASK = "CREATE TABLE "
+            + TABLE_Sub_TASK + "(" + KEY_ID + " INTEGER PRIMARY KEY," + KEY_SUB_TASK
+            + " TEXT," +  KEY_SUB_TASK_PARENT_ID + "  INTEGER )";
+
 
     // Tag table create statement
-    public static final String CREATE_TABLE_TAG = "CREATE TABLE " + TABLE_TAG
-            + "(" + KEY_ID + " INTEGER PRIMARY KEY," + KEY_TAG_NAME + " TEXT,"
-            + KEY_CREATED_AT + " DATETIME" + ")";
+//    public static final String CREATE_TABLE_TAG = "CREATE TABLE " + TABLE_TAG
+//            + "(" + KEY_ID + " INTEGER PRIMARY KEY," + KEY_TAG_NAME + " TEXT,"
+//            + KEY_CREATED_AT + " DATETIME" + ")";
 
     // todo_tag table create statement
-    public static final String CREATE_TABLE_TODO_TAG = "CREATE TABLE "
-            + TABLE_TODO_TAG + "(" + KEY_ID + " INTEGER PRIMARY KEY,"
-            + KEY_TODO_ID + " INTEGER," + KEY_TAG_ID + " INTEGER,"
-            + KEY_CREATED_AT + " DATETIME" + ")";
+//    public static final String CREATE_TABLE_TODO_TAG = "CREATE TABLE "
+//            + TABLE_TODO_TAG + "(" + KEY_ID + " INTEGER PRIMARY KEY,"
+//            + KEY_TODO_ID + " INTEGER," + KEY_TAG_ID + " INTEGER,"
+//            + KEY_CREATED_AT + " DATETIME" + ")";
 
 }

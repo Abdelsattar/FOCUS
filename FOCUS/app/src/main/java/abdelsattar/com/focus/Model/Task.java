@@ -12,6 +12,9 @@ public class Task {
         this.task = null;
     }
 
+    public Task(String task){
+        this.task = task;
+    }
     public Task(int id, String task) {
         this.id = id;
         this.task = task;

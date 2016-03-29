@@ -4,7 +4,7 @@ package abdelsattar.com.focus.Model;
  * Created by lenovo on 25/03/2016.
  */
 public class SubTask {
-    int id, parent_ID;
+    long id, parent_ID;
     String subTask;
 
     public SubTask() {
@@ -13,13 +13,18 @@ public class SubTask {
         this.subTask = null;
     }
 
-    public SubTask(int id, int parent_ID, String subTask) {
+    public SubTask(long parent_ID, String subTask) {
+        this.parent_ID = parent_ID;
+        this.subTask = subTask;
+    }
+
+    public SubTask(long id, long parent_ID, String subTask) {
         this.id = id;
         this.parent_ID = parent_ID;
         this.subTask = subTask;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
@@ -27,7 +32,7 @@ public class SubTask {
         this.id = id;
     }
 
-    public int getParent_ID() {
+    public long getParent_ID() {
         return parent_ID;
     }
 

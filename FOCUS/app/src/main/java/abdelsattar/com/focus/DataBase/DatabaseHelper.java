@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.Locale;
 
 import abdelsattar.com.focus.Constants;
+import abdelsattar.com.focus.Model.SubTask;
 import abdelsattar.com.focus.Model.Task;
 
 /**
@@ -25,30 +26,35 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     // Logcat tag
     private static final String LOG = "DatabaseHelper";
 
-    public DatabaseHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
-        super(context, name, factory, version);
+    public DatabaseHelper(Context context) {
+        super(context, Constants.DATABASE_NAME, null, Constants.DATABASE_VERSION);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+        db.execSQL(Constants.CREATE_TABLE_TASK);
+        db.execSQL(Constants.CREATE_TABLE_SUB_TASK);
 
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        db.execSQL("DROP TABLE IF EXISTS " + Constants.TABLE_TASK);
+        db.execSQL("DROP TABLE IF EXISTS " + Constants.TABLE_Sub_TASK);
 
+        onCreate(db);
     }
 
-    /*
+    /**
+     * TODO TRUE
      * Creating a task
      */
-    public long createTasks(Task task, long[] tag_ids) {
+    public long createTask(Task task) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
         values.put(Constants.KEY_TASK, task.getTask());
 
-        // insert row
         long taskID = db.insert(Constants.TABLE_TASK, null, values);
 
         return taskID;
@@ -56,6 +62,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
     /**
+     * TODO TRUE
      * get single task
      */
     public Task getTask(long taskID) {
@@ -74,14 +81,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Task td = new Task();
         td.setId(c.getInt(c.getColumnIndex(Constants.KEY_ID)));
         td.setTask((c.getString(c.getColumnIndex(Constants.KEY_TASK))));
-      
+
         return td;
     }
 
     /**
+     * TODO TRUE
      * getting all tasks
      */
-    public List<Task> getAllToDos() {
+    public List<Task> getAllTasks() {
         List<Task> tasks = new ArrayList<Task>();
         String selectQuery = "SELECT  * FROM " + Constants.TABLE_TASK;
 
@@ -90,14 +98,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = db.rawQuery(selectQuery, null);
 
-        // looping through all rows and adding to list
         if (c.moveToFirst()) {
             do {
                 Task td = new Task();
                 td.setId(c.getInt((c.getColumnIndex(Constants.KEY_ID))));
                 td.setTask((c.getString(c.getColumnIndex(Constants.KEY_TASK))));
 
-                // adding to task list
                 tasks.add(td);
             } while (c.moveToNext());
         }
@@ -106,38 +112,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     /**
-     * getting all tasks under single tag
-     */
-    public List<Task> getAllToDosByTag(String tag_name) {
-        List<Task> tasks = new ArrayList<Task>();
-
-        String selectQuery = "SELECT  * FROM " + Constants.TABLE_TASK + " td, "
-                + Constants.TABLE_TAG + " tg, " + Constants.TABLE_TODO_TAG + " tt WHERE tg."
-                + Constants.KEY_TAG_NAME + " = '" + tag_name + "'" + " AND tg." + Constants.KEY_ID
-                + " = " + "tt." + Constants.KEY_TAG_ID + " AND td." + Constants.KEY_ID + " = "
-                + "tt." + Constants.KEY_TODO_ID;
-
-        Log.e(LOG, selectQuery);
-
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor c = db.rawQuery(selectQuery, null);
-
-        // looping through all rows and adding to list
-        if (c.moveToFirst()) {
-            do {
-                Task td = new Task();
-                td.setId(c.getInt((c.getColumnIndex(Constants.KEY_ID))));
-                td.setTask((c.getString(c.getColumnIndex(Constants.KEY_TASK))));
-
-                // adding to task list
-                tasks.add(td);
-            } while (c.moveToNext());
-        }
-
-        return tasks;
-    }
-
-    /**
+     * TODO TRUE
      * getting task count
      */
     public int getTaskCount() {
@@ -153,6 +128,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     /**
+     * TODO TRUE
      * Updating a task
      */
     public int updateTask(Task task) {
@@ -167,21 +143,132 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     /**
+     * TODO TRUE
      * Deleting a task
      */
-    public void deleteTask(long tado_id) {
+    public void deleteTask(long taskID) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(Constants.TABLE_TASK, Constants.KEY_ID + " = ?",
-                new String[]{String.valueOf(tado_id)});
+                new String[]{String.valueOf(taskID)});
     }
 
-    // ------------------------ "tags" table methods ----------------//
+    // ------------------------ "SubTasks" table methods ----------------//
     // closing database
     public void closeDB() {
         SQLiteDatabase db = this.getReadableDatabase();
         if (db != null && db.isOpen())
             db.close();
     }
+
+    /**
+     * DONE
+     * Creating a task
+     */
+    public long createSubTask(SubTask subTask) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(Constants.KEY_SUB_TASK, subTask.getSubTask());
+        values.put(Constants.KEY_SUB_TASK_PARENT_ID, subTask.getParent_ID());
+
+        long taskID = db.insert(Constants.TABLE_Sub_TASK, null, values);
+
+        return taskID;
+    }
+
+    /**
+     * DONE
+     * get single SubTask
+     */
+    public SubTask getSubTask(long subTaskID) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String selectQuery = "SELECT  * FROM " + Constants.TABLE_Sub_TASK + " WHERE "
+                + Constants.KEY_ID + " = " + subTaskID;
+
+        Log.e(LOG, selectQuery);
+
+        Cursor c = db.rawQuery(selectQuery, null);
+
+        if (c != null)
+            c.moveToFirst();
+
+        SubTask td = new SubTask();
+        td.setId(c.getInt(c.getColumnIndex(Constants.KEY_ID)));
+        td.setSubTask(c.getString(c.getColumnIndex(Constants.KEY_SUB_TASK)));
+
+        return td;
+    }
+
+    /**
+     * DONE
+     * getting all SubTasks based on Task
+     */
+    public List<SubTask> getAllSubTasks(long parentTaskID) {
+        List<SubTask> tasks = new ArrayList<SubTask>();
+        String selectQuery = "SELECT  * FROM " + Constants.TABLE_Sub_TASK + " WHERE "
+                + Constants.KEY_SUB_TASK_PARENT_ID + " = " + parentTaskID;
+
+        Log.e(LOG, selectQuery);
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = db.rawQuery(selectQuery, null);
+
+        if (c.moveToFirst()) {
+            do {
+                SubTask td = new SubTask();
+                td.setId(c.getInt((c.getColumnIndex(Constants.KEY_ID))));
+                td.setSubTask((c.getString(c.getColumnIndex(Constants.KEY_SUB_TASK))));
+               // td.setParent_ID();
+                tasks.add(td);
+            } while (c.moveToNext());
+        }
+
+        return tasks;
+    }
+
+    /**
+     * DONE
+     * getting subTask count
+     */
+    public int getSubTaskCount() {
+        String countQuery = "SELECT  * FROM " + Constants.TABLE_Sub_TASK;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(countQuery, null);
+
+        int count = cursor.getCount();
+        cursor.close();
+
+        // return count
+        return count;
+    }
+
+    /**
+     * DONE
+     * Updating a SubTask
+     */
+    public int updateSubTask(SubTask subTask) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(Constants.KEY_SUB_TASK, subTask.getSubTask());
+
+        return db.update(Constants.TABLE_Sub_TASK, values, Constants.KEY_ID + " = ?",
+                new String[]{String.valueOf(subTask.getId())});
+    }
+
+    /**
+     * DONE
+     * Deleting a task
+     */
+    public void deleteSubTask(long subTaskID) {
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(Constants.TABLE_Sub_TASK, Constants.KEY_ID + " = ?",
+                new String[]{String.valueOf(subTaskID)});
+    }
+
+
 
     /**
      * get datetime
