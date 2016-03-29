@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import abdelsattar.com.focus.Model.Task;
 import abdelsattar.com.focus.R;
 
 /**
@@ -18,9 +19,9 @@ import abdelsattar.com.focus.R;
  */
 public class RecycleViewAdapter extends  RecyclerView.Adapter<RecycleViewAdapter.PlaceViewHolder> {
 
-    List<String> places;
+    List<Task> places;
 
-    public RecycleViewAdapter(List<String> places) {
+    public RecycleViewAdapter(List<Task> places) {
         this.places = places;
     }
 
@@ -34,7 +35,7 @@ public class RecycleViewAdapter extends  RecyclerView.Adapter<RecycleViewAdapter
     @Override
     public void onBindViewHolder(PlaceViewHolder holder, int position) {
 
-        holder.taskName.setText(places.get(position));
+        holder.taskName.setText(places.get(position).getTask());
 
     }
     @Override

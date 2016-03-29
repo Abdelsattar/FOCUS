@@ -89,8 +89,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
      * TODO TRUE
      * getting all tasks
      */
-    public List<Task> getAllTasks() {
-        List<Task> tasks = new ArrayList<Task>();
+    public ArrayList<Task> getAllTasks() {
+        ArrayList<Task> tasks = new ArrayList<Task>();
         String selectQuery = "SELECT  * FROM " + Constants.TABLE_TASK;
 
         Log.e(LOG, selectQuery);
