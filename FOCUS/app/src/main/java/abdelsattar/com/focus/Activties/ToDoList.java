@@ -34,7 +34,6 @@ public class ToDoList extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         db = new DatabaseHelper(getApplicationContext());
-        //testDB();
         tasks = db.getAllTasks();
 
         RecyclerView rv = (RecyclerView) findViewById(R.id.rv);
@@ -42,28 +41,25 @@ public class ToDoList extends AppCompatActivity {
         LinearLayoutManager llm = new LinearLayoutManager(this);
         rv.setLayoutManager(llm);
 
-        RecycleViewAdapter adapter = new RecycleViewAdapter(tasks);
+        RecycleViewAdapter adapter = new RecycleViewAdapter(this,tasks);
         rv.setAdapter(adapter);
 
 
-        rv.addOnItemTouchListener(
-                new RecyclerItemClickListener(this, new RecyclerItemClickListener.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(View view, int position) {
-                        Intent intent = new Intent(getApplication(), MainActivity.class);
-                        Log.d("LOOL", position + "");
-                        startActivity(intent);
-                    }
-                })
-        );
+//        rv.addOnItemTouchListener(
+//                new RecyclerItemClickListener(this, new RecyclerItemClickListener.OnItemClickListener() {
+//                    @Override
+//                    public void onItemClick(View view, int position) {
+//                        Intent intent = new Intent(getApplication(), MainActivity.class);
+//                        Log.d("LOOL", position + "");
+//                        startActivity(intent);
+//                    }
+//                })
+//        );
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 setupAddTaskDialog();
-
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
             }
         });
     }
@@ -101,8 +97,7 @@ public class ToDoList extends AppCompatActivity {
                                     taskDialog.setError("This field can not be blank");
                                 } else {
                                    long taskId = db.createTask(new Task(taskDialog.getText().toString()));
-                                    tasks.add(new Task(taskDialog.getText().toString()) );
-                                    //if(taskId < 0 )
+                                   tasks.add(new Task(taskDialog.getText().toString()) );
                                 }
                             }
                         })

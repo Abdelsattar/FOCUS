@@ -4,7 +4,7 @@ package abdelsattar.com.focus.Model;
  * Created by lenovo on 25/03/2016.
  */
 public class Task {
-    int id ;
+    long id ;
     String task;
 
     public Task() {
@@ -15,16 +15,17 @@ public class Task {
     public Task(String task){
         this.task = task;
     }
-    public Task(int id, String task) {
+
+    public Task(long id, String task) {
         this.id = id;
         this.task = task;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
