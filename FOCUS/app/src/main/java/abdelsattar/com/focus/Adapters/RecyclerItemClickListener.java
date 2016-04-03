@@ -45,5 +45,20 @@ public class RecyclerItemClickListener implements RecyclerView.OnItemTouchListen
     public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
 
     }
+
+
+    /*   How to use it
+
+        rv.addOnItemTouchListener(
+                new RecyclerItemClickListener(this, new RecyclerItemClickListener.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(View view, int position) {
+                        Intent intent = new Intent(getApplication(), MainActivity.class);
+                        Log.d("LOOL", position + "");
+                        startActivity(intent);
+                    }
+                })
+        );
+     */
 }
 

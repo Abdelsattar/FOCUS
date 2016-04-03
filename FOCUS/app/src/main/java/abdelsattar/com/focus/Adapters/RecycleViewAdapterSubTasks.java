@@ -1,12 +1,8 @@
 package abdelsattar.com.focus.Adapters;
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.view.GestureDetector;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
@@ -14,23 +10,22 @@ import android.widget.CompoundButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.List;
+import java.util.ArrayList;
 
-import abdelsattar.com.focus.Activties.subtasksDetails;
 import abdelsattar.com.focus.DataBase.DatabaseHelper;
-import abdelsattar.com.focus.Model.Task;
+import abdelsattar.com.focus.Model.SubTask;
 import abdelsattar.com.focus.R;
 
 /**
  * Created by lenovo on 20/03/2016.
  */
-public class RecycleViewAdapter extends  RecyclerView.Adapter<RecycleViewAdapter.PlaceViewHolder> {
+public class RecycleViewAdapterSubTasks extends  RecyclerView.Adapter<RecycleViewAdapterSubTasks.PlaceViewHolder> {
 
-    List<Task> tasks;
+    ArrayList<SubTask> subTasks;
     Context context;
 
-    public RecycleViewAdapter(Context context, List<Task> places ) {
-        this.tasks = places;
+    public RecycleViewAdapterSubTasks(Context context, ArrayList<SubTask> subTasks) {
+        this.subTasks = subTasks;
         this.context = context;
     }
 
@@ -44,24 +39,23 @@ public class RecycleViewAdapter extends  RecyclerView.Adapter<RecycleViewAdapter
     @Override
     public void onBindViewHolder(PlaceViewHolder holder, final int position) {
 
-        holder.taskName.setText(tasks.get(position).getTask());
-        holder.taskName.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent intent = new Intent(context, subtasksDetails.class);
-                intent.putExtra("parent_id",tasks.get(position).getId());
-                Log.d("Adapter", tasks.get(position).getId() +" " + tasks.get(position).getTask()+" "+ position );
-                context.startActivity(intent);
-
-            }
-        });
+        holder.taskName.setText(subTasks.get(position).getSubTask());
+//        holder.taskName.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                Intent intent = new Intent(context, subtasksDetails.class);
+//                intent.putExtra("parent_id",subTasks.get(position).getId());
+//                context.startActivity(intent);
+//
+//            }
+//        });
         holder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 DatabaseHelper DB = new DatabaseHelper(context);
-                DB.deleteTask(tasks.get(position).getId());
-                tasks.remove(position);
+                DB.deleteSubTask(subTasks.get(position).getId());
+                subTasks.remove(position);
 
                 Toast.makeText(context,
                         "Hello Checked",
@@ -76,7 +70,7 @@ public class RecycleViewAdapter extends  RecyclerView.Adapter<RecycleViewAdapter
     }
     @Override
     public int getItemCount() {
-        return tasks.size();
+        return subTasks.size();
     }
 
     public static class PlaceViewHolder extends RecyclerView.ViewHolder {

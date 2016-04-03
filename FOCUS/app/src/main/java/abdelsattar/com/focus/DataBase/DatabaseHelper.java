@@ -204,8 +204,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
      * DONE
      * getting all SubTasks based on Task
      */
-    public List<SubTask> getAllSubTasks(long parentTaskID) {
-        List<SubTask> tasks = new ArrayList<SubTask>();
+    public ArrayList<SubTask> getAllSubTasks(long parentTaskID) {
+        ArrayList<SubTask> tasks = new ArrayList<SubTask>();
         String selectQuery = "SELECT  * FROM " + Constants.TABLE_Sub_TASK + " WHERE "
                 + Constants.KEY_SUB_TASK_PARENT_ID + " = " + parentTaskID;
 
@@ -266,6 +266,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(Constants.TABLE_Sub_TASK, Constants.KEY_ID + " = ?",
                 new String[]{String.valueOf(subTaskID)});
+    }
+
+    public void deleteAllSubTasks(long parentID) {
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(Constants.TABLE_Sub_TASK, Constants.KEY_ID + " = ?",
+                new String[]{String.valueOf(parentID)});
     }
 
 

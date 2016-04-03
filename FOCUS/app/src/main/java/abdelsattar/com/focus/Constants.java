@@ -32,7 +32,7 @@ public class Constants {
     public static final String KEY_SUB_TASK_PARENT_ID  = "parent_id";
 
     // Table Create Statements
-    // Todo table create statement
+
     public static final String CREATE_TABLE_TASK = "CREATE TABLE "
             + TABLE_TASK + "(" + KEY_ID + " INTEGER PRIMARY KEY," + KEY_TASK
             + " TEXT )";
@@ -47,7 +47,7 @@ public class Constants {
         Context context = null; // the application context
         DatabaseHelper db = new DatabaseHelper(context);
         // Inserting tags in db
-        long task1_id = db.createTask(new Task(" Study"));
+        long task1_id = db.createTask(new Task("Study"));
         long task2_id = db.createTask(new Task("Learn"));
         long task3_id = db.createTask(new Task("Work"));
 

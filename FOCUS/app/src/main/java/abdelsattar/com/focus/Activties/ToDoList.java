@@ -25,37 +25,17 @@ import abdelsattar.com.focus.R;
 public class ToDoList extends AppCompatActivity {
     ArrayList<Task> tasks;
     DatabaseHelper db;
+    FloatingActionButton fab;
+    Toolbar toolbar;
+    RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_to_do_list);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
-        db = new DatabaseHelper(getApplicationContext());
-        tasks = db.getAllTasks();
+        initializeScreen();
 
-        RecyclerView rv = (RecyclerView) findViewById(R.id.rv);
-        rv.setHasFixedSize(true);
-        LinearLayoutManager llm = new LinearLayoutManager(this);
-        rv.setLayoutManager(llm);
-
-        RecycleViewAdapter adapter = new RecycleViewAdapter(this,tasks);
-        rv.setAdapter(adapter);
-
-
-//        rv.addOnItemTouchListener(
-//                new RecyclerItemClickListener(this, new RecyclerItemClickListener.OnItemClickListener() {
-//                    @Override
-//                    public void onItemClick(View view, int position) {
-//                        Intent intent = new Intent(getApplication(), MainActivity.class);
-//                        Log.d("LOOL", position + "");
-//                        startActivity(intent);
-//                    }
-//                })
-//        );
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -64,6 +44,27 @@ public class ToDoList extends AppCompatActivity {
         });
     }
 
+    private void  initializeScreen(){
+        fab = (FloatingActionButton) findViewById(R.id.Tasks_fab);
+        recyclerView = (RecyclerView) findViewById(R.id.Tasks_recycleView);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        db = new DatabaseHelper(getApplicationContext());
+        tasks = db.getAllTasks();
+
+        initializeRecycleViewAdapter();
+
+    }
+
+
+    private void initializeRecycleViewAdapter(){
+        recyclerView.setHasFixedSize(true);
+        LinearLayoutManager llm = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(llm);
+
+        RecycleViewAdapter adapter = new RecycleViewAdapter(this,tasks);
+        recyclerView.setAdapter(adapter);
+    }
 
     private void initializeDummyData() {
         ArrayList<String> ts = new ArrayList<>();
@@ -97,7 +98,7 @@ public class ToDoList extends AppCompatActivity {
                                     taskDialog.setError("This field can not be blank");
                                 } else {
                                    long taskId = db.createTask(new Task(taskDialog.getText().toString()));
-                                   tasks.add(new Task(taskDialog.getText().toString()) );
+                                   tasks.add(new Task(taskId,taskDialog.getText().toString()) );
                                 }
                             }
                         })
@@ -111,6 +112,7 @@ public class ToDoList extends AppCompatActivity {
         alertDialog.show();
 
     }
+
 
 
 }
