@@ -32,7 +32,21 @@ public class Constants {
     public static final String KEY_ID = "id";
 
     public static final String KEY_SUB_TASK = "sub_task";
-    public static final String KEY_SUB_TASK_PARENT_ID  = "parent_id";
+    public static final String KEY_SUB_TASK_PARENT_ID = "parent_id";
+
+
+    //Shared Prefrenece
+    public static final String KEY_SharedPreference = "TopPreferences";
+
+
+    public static final String KEY_Pref_one = "TopOne";
+    public static final String KEY_Pref_two = "TopTwo";
+    public static final String KEY_Pref_three = "TopThree";
+
+    public static final String KEY_Pref_1st_person = "firstPerson";
+    public static final String KEY_Pref_2nd_person = "secondPerson";
+    public static final String KEY_Pref_3rd_person = "thirdPerson";
+
 
     // Table Create Statements
 
@@ -42,13 +56,13 @@ public class Constants {
 
     public static final String CREATE_TABLE_SUB_TASK = "CREATE TABLE "
             + TABLE_Sub_TASK + "(" + KEY_ID + " INTEGER PRIMARY KEY," + KEY_SUB_TASK
-            + " TEXT," +  KEY_SUB_TASK_PARENT_ID + "  INTEGER )";
+            + " TEXT," + KEY_SUB_TASK_PARENT_ID + "  INTEGER )";
 
     public static final String CREATE_TABLE_THANKFUL = "CREATE TABLE "
             + TABLE_THANKFUL + "(" + KEY_ID + " INTEGER PRIMARY KEY," + KEY_THANKFUL
             + " TEXT )";
 
-    void  testDB(){
+    void testDB() {
 
         Context context = null; // the application context
         DatabaseHelper db = new DatabaseHelper(context);
@@ -60,14 +74,14 @@ public class Constants {
         Log.d("Tag Count", "Tag Count: " + db.getAllThankfulFor().size());
 
         // Creating ToDos
-        SubTask subTask1 = new SubTask(task1_id,"Doing Compiler Assignemnt");
-        SubTask subTask2 = new SubTask(task1_id,"Doing Parallel Assignemnt");
+        SubTask subTask1 = new SubTask(task1_id, "Doing Compiler Assignemnt");
+        SubTask subTask2 = new SubTask(task1_id, "Doing Parallel Assignemnt");
 
-        SubTask subTask3 = new SubTask(task2_id,"Learn Firebase");
-        SubTask subTask4 = new SubTask(task2_id,"learn franch language");
+        SubTask subTask3 = new SubTask(task2_id, "Learn Firebase");
+        SubTask subTask4 = new SubTask(task2_id, "learn franch language");
 
-        SubTask subTask5 = new SubTask(task3_id,"FOCUS ON FOUCS");
-        SubTask subTask6 = new SubTask(task3_id,"Quandoe Lib");
+        SubTask subTask5 = new SubTask(task3_id, "FOCUS ON FOUCS");
+        SubTask subTask6 = new SubTask(task3_id, "Quandoe Lib");
 
         // Inserting todos in db
         // Inserting todos under "Shopping" Tag

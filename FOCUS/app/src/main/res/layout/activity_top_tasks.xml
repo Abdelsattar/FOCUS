@@ -11,88 +11,127 @@
     tools:context="abdelsattar.com.focus.Activties.TopTasks">
 
     <TextView
-        android:id="@+id/one"
+        android:id="@+id/TopThreeTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="7dp"
-        android:text="1-"
+        android:layout_marginBottom="50dp"
+        android:text="Top Three Tasks"
         android:textSize="25sp"
         android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/Top3_one"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="7dp"
-        android:layout_toRightOf="@+id/one"
-        android:text="Top 1"
-        android:textSize="25sp" />
+        android:layout_below="@+id/TopThreeTv"
+        android:id="@+id/linearLayoutOne">
 
-    <ImageView
-        android:id="@+id/EditOne"
+
+        <TextView
+            android:id="@+id/one"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/TopThreeTv"
+            android:layout_margin="7dp"
+            android:text="1-"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/Top3_one"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/TopThreeTv"
+
+            android:layout_margin="7dp"
+            android:layout_toRightOf="@+id/one"
+            android:text="Top 1"
+            android:textSize="25sp" />
+
+        <ImageView
+            android:id="@+id/EditOne"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/TopThreeTv"
+            android:layout_margin="7dp"
+            android:layout_toRightOf="@+id/Top3_one"
+            android:src="@android:drawable/ic_menu_edit" />
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-       android:layout_margin="7dp"
-        android:layout_toRightOf="@+id/Top3_one"
-        android:src="@android:drawable/ic_menu_edit" />
+        android:layout_below="@+id/linearLayoutOne"
+        android:id="@+id/linearLayoutTwo"
+        >
 
-    <TextView
-        android:id="@+id/two"
+        <TextView
+            android:id="@+id/two"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/one"
+            android:layout_margin="7dp"
+            android:text="2-"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/_2ndPerson"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Top3_one"
+            android:layout_margin="7dp"
+            android:layout_toRightOf="@+id/one"
+            android:text="Top 2"
+            android:textSize="25sp" />
+
+        <ImageView
+            android:id="@+id/EditTwo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/EditPersonOne"
+            android:layout_margin="7dp"
+            android:layout_toRightOf="@+id/_2ndPerson"
+
+            android:src="@android:drawable/ic_menu_edit" />
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/one"
-        android:layout_margin="7dp"
-        android:text="2-"
-        android:textSize="25sp"
-        android:textStyle="bold" />
+        android:layout_below="@+id/linearLayoutTwo"
+        android:id="@+id/linearLayoutThree">
 
-    <TextView
-        android:id="@+id/Top3_two"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/Top3_one"
-        android:layout_margin="7dp"
-        android:layout_toRightOf="@+id/one"
-        android:text="Top 2"
-        android:textSize="25sp" />
+        <TextView
+            android:id="@+id/three"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/two"
+            android:layout_margin="7dp"
+            android:text="3-"
+            android:textSize="25sp"
+            android:textStyle="bold" />
 
-    <ImageView
-        android:id="@+id/EditTwo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/EditOne"
-        android:layout_margin="7dp"
-        android:layout_toRightOf="@+id/Top3_two"
+        <TextView
+            android:id="@+id/_3rdPerson"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/_2ndPerson"
+            android:layout_margin="7dp"
+            android:layout_toRightOf="@+id/one"
+            android:text="Top 3"
+            android:textSize="25sp" />
 
-        android:src="@android:drawable/ic_menu_edit" />
+        <ImageView
+            android:id="@+id/EditThree"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/_2ndPerson"
+            android:layout_margin="7dp"
+            android:layout_toRightOf="@+id/_3rdPerson"
+            android:src="@android:drawable/ic_menu_edit" />
 
-    <TextView
-        android:id="@+id/three"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/two"
-        android:layout_margin="7dp"
-        android:text="3-"
-        android:textSize="25sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/Top3_three"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/Top3_two"
-        android:layout_margin="7dp"
-        android:layout_toRightOf="@+id/one"
-        android:text="Top 3"
-        android:textSize="25sp" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="7dp"
-        android:id="@+id/EditThree"
-        android:layout_toRightOf="@+id/Top3_three"
-        android:layout_below="@+id/Top3_two"
-        android:src="@android:drawable/ic_menu_edit" />
+    </LinearLayout>
 
 </RelativeLayout>
