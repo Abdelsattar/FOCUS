@@ -8,18 +8,18 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Add Task"
-        android:layout_gravity="center"
-        android:textSize="20dp"
-        android:textStyle="bold" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Thankful For"
+            android:layout_gravity="center"
+            android:textSize="20dp"
+            android:textStyle="bold" />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/task_Dialog"/>
+            android:id="@+id/Thankful_String"/>
     </LinearLayout>
 
 </ScrollView>

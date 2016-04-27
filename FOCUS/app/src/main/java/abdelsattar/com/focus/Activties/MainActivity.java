@@ -2,13 +2,11 @@ package abdelsattar.com.focus.Activties;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 
 import abdelsattar.com.focus.R;
@@ -23,16 +21,16 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
         setSupportActionBar(toolbar);
 
         Button todoB = (Button) findViewById(R.id.Main_ToDoListB);
+        Button contact = (Button) findViewById(R.id.Main_contactB);
+        Button thankful = (Button) findViewById(R.id.Main_thankful);
+        Button top3 = (Button) findViewById(R.id.Main_top3B);
         todoB.setOnClickListener(this);
+        contact.setOnClickListener(this);
+        thankful.setOnClickListener(this);
+        top3.setOnClickListener(this);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+       // this.deleteDatabase(Constants.DATABASE_NAME);
+
     }
 
 
@@ -44,6 +42,19 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
                 intent = new Intent(this, ToDoList.class);
                 break;
             }
+            case R.id.Main_top3B:{
+                intent = new Intent(this, TopTasks.class);
+                break;
+            }
+            case R.id.Main_contactB:{
+                intent = new Intent(this, Contact.class);
+                break;
+            }
+            case R.id.Main_thankful:{
+                intent = new Intent(this, Thankful.class);
+                break;
+            }
+
         }
         startActivity(intent);
 

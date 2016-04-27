@@ -1,7 +1,6 @@
 package abdelsattar.com.focus.Activties;
 
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
@@ -9,7 +8,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
@@ -17,7 +15,6 @@ import android.widget.EditText;
 import java.util.ArrayList;
 
 import abdelsattar.com.focus.Adapters.RecycleViewAdapter;
-import abdelsattar.com.focus.Adapters.RecyclerItemClickListener;
 import abdelsattar.com.focus.DataBase.DatabaseHelper;
 import abdelsattar.com.focus.Model.Task;
 import abdelsattar.com.focus.R;
@@ -49,6 +46,7 @@ public class ToDoList extends AppCompatActivity {
         recyclerView = (RecyclerView) findViewById(R.id.Tasks_recycleView);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
         db = new DatabaseHelper(getApplicationContext());
         tasks = db.getAllTasks();
 

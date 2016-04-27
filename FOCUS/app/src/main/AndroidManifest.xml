@@ -22,7 +22,10 @@
             android:name=".Activties.ToDoList"
             android:label="@string/title_activity_to_do_list"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Activties.subtasksDetails"></activity>
+        <activity android:name=".Activties.subtasksDetails" />
+        <activity android:name=".Activties.TopTasks" />
+        <activity android:name=".Activties.Contact" />
+        <activity android:name=".Activties.Thankful"></activity>
     </application>
 
 </manifest>

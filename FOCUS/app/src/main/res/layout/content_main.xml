@@ -26,8 +26,8 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Button"
-        android:id="@+id/button2"
+        android:text="Top 3 tasks"
+        android:id="@+id/Main_top3B"
         android:layout_alignTop="@+id/Main_ToDoListB"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
@@ -35,8 +35,8 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Button"
-        android:id="@+id/button3"
+        android:text="Contact"
+        android:id="@+id/Main_contactB"
         android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -44,9 +44,9 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Button"
-        android:id="@+id/button4"
-        android:layout_alignBottom="@+id/button3"
-        android:layout_alignLeft="@+id/button2"
-        android:layout_alignStart="@+id/button2" />
+        android:text="Thankful For"
+        android:id="@+id/Main_thankful"
+        android:layout_alignBottom="@+id/Main_contactB"
+        android:layout_alignLeft="@+id/Main_top3B"
+        android:layout_alignStart="@+id/Main_top3B" />
 </RelativeLayout>

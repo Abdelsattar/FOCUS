@@ -21,10 +21,13 @@ public class Constants {
     public static final String DATABASE_NAME = "contactsManager";
 
     // Table Names
+    public static final String TABLE_THANKFUL = "thankful";
     public static final String TABLE_TASK = "tasks";
     public static final String TABLE_Sub_TASK = "sub_tasks";
 
     // NOTES Table - column nmaes
+    public static final String KEY_THANKFUL = "thankful_for";
+
     public static final String KEY_TASK = "task";
     public static final String KEY_ID = "id";
 
@@ -41,6 +44,9 @@ public class Constants {
             + TABLE_Sub_TASK + "(" + KEY_ID + " INTEGER PRIMARY KEY," + KEY_SUB_TASK
             + " TEXT," +  KEY_SUB_TASK_PARENT_ID + "  INTEGER )";
 
+    public static final String CREATE_TABLE_THANKFUL = "CREATE TABLE "
+            + TABLE_THANKFUL + "(" + KEY_ID + " INTEGER PRIMARY KEY," + KEY_THANKFUL
+            + " TEXT )";
 
     void  testDB(){
 
@@ -51,7 +57,7 @@ public class Constants {
         long task2_id = db.createTask(new Task("Learn"));
         long task3_id = db.createTask(new Task("Work"));
 
-        Log.d("Tag Count", "Tag Count: " + db.getAllTasks().size());
+        Log.d("Tag Count", "Tag Count: " + db.getAllThankfulFor().size());
 
         // Creating ToDos
         SubTask subTask1 = new SubTask(task1_id,"Doing Compiler Assignemnt");

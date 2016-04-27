@@ -16,19 +16,19 @@ import java.util.List;
 
 import abdelsattar.com.focus.Activties.subtasksDetails;
 import abdelsattar.com.focus.DataBase.DatabaseHelper;
-import abdelsattar.com.focus.Model.Task;
+import abdelsattar.com.focus.Model.ThankfulFor;
 import abdelsattar.com.focus.R;
 
 /**
  * Created by lenovo on 20/03/2016.
  */
-public class RecycleViewAdapter extends  RecyclerView.Adapter<RecycleViewAdapter.PlaceViewHolder> {
+public class ThankfulRecycleViewAdapter extends  RecyclerView.Adapter<ThankfulRecycleViewAdapter.PlaceViewHolder> {
 
-    List<Task> tasks;
+    List<ThankfulFor> ThankfulFor;
     Context context;
 
-    public RecycleViewAdapter(Context context, List<Task> places ) {
-        this.tasks = places;
+    public ThankfulRecycleViewAdapter(Context context, List<ThankfulFor> ThankfulFor ) {
+        this.ThankfulFor = ThankfulFor;
         this.context = context;
     }
 
@@ -42,14 +42,14 @@ public class RecycleViewAdapter extends  RecyclerView.Adapter<RecycleViewAdapter
     @Override
     public void onBindViewHolder(PlaceViewHolder holder, final int position) {
 
-        holder.taskName.setText(tasks.get(position).getTask());
+        holder.taskName.setText(ThankfulFor.get(position).getThankfulFor());
         holder.taskName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 Intent intent = new Intent(context, subtasksDetails.class);
-                intent.putExtra("parent_id",tasks.get(position).getId());
-                Log.d("Adapter", tasks.get(position).getId() +" " + tasks.get(position).getTask()+" "+ position );
+                intent.putExtra("parent_id",ThankfulFor.get(position).getId());
+                Log.d("Adapter", ThankfulFor.get(position).getId() +" " + ThankfulFor.get(position).getThankfulFor()+" "+ position );
                 context.startActivity(intent);
 
             }
@@ -58,8 +58,8 @@ public class RecycleViewAdapter extends  RecyclerView.Adapter<RecycleViewAdapter
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 DatabaseHelper DB = new DatabaseHelper(context);
-                DB.deleteTask(tasks.get(position).getId());
-                tasks.remove(position);
+                DB.deleteTask(ThankfulFor.get(position).getId());
+                ThankfulFor.remove(position);
 
                 Toast.makeText(context,
                         "Hello Checked",
@@ -74,7 +74,7 @@ public class RecycleViewAdapter extends  RecyclerView.Adapter<RecycleViewAdapter
     }
     @Override
     public int getItemCount() {
-        return tasks.size();
+        return ThankfulFor.size();
     }
 
     public static class PlaceViewHolder extends RecyclerView.ViewHolder {
