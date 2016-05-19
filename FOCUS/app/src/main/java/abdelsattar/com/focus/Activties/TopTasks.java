@@ -42,23 +42,24 @@ public class TopTasks extends AppCompatActivity implements View.OnClickListener 
         two = sharedPreferences.getString(Constants.KEY_Pref_two, null);
         three = sharedPreferences.getString(Constants.KEY_Pref_three, null);
 
-        if(one !=null){
+        if (one != null) {
             top1.setText(one);
         }
-        if(two != null){
+        if (two != null) {
             top2.setText(two);
         }
-        if(three != null){
+        if (three != null) {
             top3.setText(three);
         }
     }
-    public void initializeScreen() {
-        top1 = (TextView) findViewById(R.id.one);
-        top2 = (TextView) findViewById(R.id.two);
-        top3 = (TextView) findViewById(R.id.three);
 
-        editOne = (ImageView) findViewById(R.id.EditPersonOne);
-        editTwo = (ImageView) findViewById(R.id.EditPersonTwo);
+    public void initializeScreen() {
+        top1 = (TextView) findViewById(R.id.Top3_one);
+        top2 = (TextView) findViewById(R.id.Top3_two);
+        top3 = (TextView) findViewById(R.id.Top3_three);
+
+        editOne = (ImageView) findViewById(R.id.EditOne);
+        editTwo = (ImageView) findViewById(R.id.EditTwo);
         editThree = (ImageView) findViewById(R.id.EditThree);
 
 
@@ -67,32 +68,32 @@ public class TopTasks extends AppCompatActivity implements View.OnClickListener 
     @Override
     public void onClick(View view) {
 
-        setupAddTaskDialog();
+
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
         switch (view.getId()) {
-            case R.id.one: {
-                editor.putString(Constants.KEY_Pref_one, AddedString);
+            case R.id.EditOne: {
+                setupAddTaskDialog(1);
                 break;
             }
-            case R.id.two: {
-
-                editor.putString(Constants.KEY_Pref_two, AddedString);
+            case R.id.EditTwo: {
+                setupAddTaskDialog(2);
                 break;
             }
-            case R.id.three: {
-
-                editor.putString(Constants.KEY_Pref_three, AddedString);
+            case R.id.EditThree: {
+                setupAddTaskDialog(3);
                 break;
             }
         }
         editor.commit();
     }
 
-    private void setupAddTaskDialog() {
+
+    private void setupAddTaskDialog(final int num) {
 
         LayoutInflater li = LayoutInflater.from(this);
         View promptsView = li.inflate(R.layout.add_top_task, null);
+
 
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
                 this);
@@ -112,7 +113,21 @@ public class TopTasks extends AppCompatActivity implements View.OnClickListener 
                                     taskDialog.setError("This field can not be blank");
                                 } else {
                                     AddedString = taskDialog.getText().toString();
+                                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                                    if (num == 1) {
+                                        editor.putString(Constants.KEY_Pref_one, AddedString);
+                                        top1.setText(AddedString);
+                                    } else if (num == 2) {
 
+                                        editor.putString(Constants.KEY_Pref_two, AddedString);
+                                        top2.setText(AddedString);
+
+                                    } else if (num == 3) {
+                                        editor.putString(Constants.KEY_Pref_three, AddedString);
+                                        top3.setText(AddedString);
+
+                                    }
+                                    editor.commit();
                                 }
                             }
                         })
@@ -126,5 +141,4 @@ public class TopTasks extends AppCompatActivity implements View.OnClickListener 
         alertDialog.show();
 
     }
-
 }

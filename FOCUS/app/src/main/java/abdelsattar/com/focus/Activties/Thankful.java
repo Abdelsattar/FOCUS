@@ -24,6 +24,7 @@ public class Thankful extends AppCompatActivity {
     DatabaseHelper db;
     ArrayList<ThankfulFor> thankfulFor;
     RecyclerView recyclerView;
+    ThankfulRecycleViewAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +33,7 @@ public class Thankful extends AppCompatActivity {
 
         thankfulFor = new ArrayList<>();
         fab = (FloatingActionButton) findViewById(R.id.Thankful_Add);
+       // fab.setBackgroundColor(getResources().getColor(R.color.white));
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -51,7 +53,8 @@ public class Thankful extends AppCompatActivity {
         LinearLayoutManager llm = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(llm);
 
-        ThankfulRecycleViewAdapter adapter = new ThankfulRecycleViewAdapter(this, thankfulFor);
+         adapter = new ThankfulRecycleViewAdapter(this, thankfulFor);
+
         recyclerView.setAdapter(adapter);
     }
 
@@ -79,6 +82,7 @@ public class Thankful extends AppCompatActivity {
                                 } else {
                                     long thankfulForID = db.createThankful(thankfulDialog.getText().toString());
                                     thankfulFor.add(new ThankfulFor(thankfulForID, thankfulDialog.getText().toString()));
+                                    adapter.notifyDataSetChanged();
                                 }
                             }
                         })

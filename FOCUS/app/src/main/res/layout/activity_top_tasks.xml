@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimaryLight"
     android:gravity="center"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -15,15 +16,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="50dp"
+        android:textColor="@color/white"
         android:text="Top Three Tasks"
         android:textSize="25sp"
         android:textStyle="bold" />
 
     <LinearLayout
+        android:id="@+id/linearLayoutOne"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/TopThreeTv"
-        android:id="@+id/linearLayoutOne">
+        android:layout_below="@+id/TopThreeTv">
 
 
         <TextView
@@ -33,6 +35,7 @@
             android:layout_below="@+id/TopThreeTv"
             android:layout_margin="7dp"
             android:text="1-"
+            android:textColor="@color/white"
             android:textSize="25sp"
             android:textStyle="bold" />
 
@@ -41,10 +44,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/TopThreeTv"
-
             android:layout_margin="7dp"
             android:layout_toRightOf="@+id/one"
             android:text="Top 1"
+            android:textColor="@color/white"
             android:textSize="25sp" />
 
         <ImageView
@@ -59,11 +62,10 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/linearLayoutTwo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/linearLayoutOne"
-        android:id="@+id/linearLayoutTwo"
-        >
+        android:layout_below="@+id/linearLayoutOne">
 
         <TextView
             android:id="@+id/two"
@@ -71,12 +73,14 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/one"
             android:layout_margin="7dp"
+            android:textColor="@color/white"
             android:text="2-"
             android:textSize="25sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/_2ndPerson"
+            android:id="@+id/Top3_two"
+            android:textColor="@color/white"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/Top3_one"
@@ -98,15 +102,16 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/linearLayoutThree"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/linearLayoutTwo"
-        android:id="@+id/linearLayoutThree">
+        android:layout_below="@+id/linearLayoutTwo">
 
         <TextView
             android:id="@+id/three"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/white"
             android:layout_below="@+id/two"
             android:layout_margin="7dp"
             android:text="3-"
@@ -114,9 +119,10 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/_3rdPerson"
+            android:id="@+id/Top3_three"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/white"
             android:layout_below="@+id/_2ndPerson"
             android:layout_margin="7dp"
             android:layout_toRightOf="@+id/one"

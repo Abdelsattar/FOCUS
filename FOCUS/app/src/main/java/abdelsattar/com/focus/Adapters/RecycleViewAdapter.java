@@ -1,7 +1,9 @@
 package abdelsattar.com.focus.Adapters;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -22,12 +24,12 @@ import abdelsattar.com.focus.R;
 /**
  * Created by lenovo on 20/03/2016.
  */
-public class RecycleViewAdapter extends  RecyclerView.Adapter<RecycleViewAdapter.PlaceViewHolder> {
+public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.PlaceViewHolder> {
 
     List<Task> tasks;
     Context context;
 
-    public RecycleViewAdapter(Context context, List<Task> places ) {
+    public RecycleViewAdapter(Context context, List<Task> places) {
         this.tasks = places;
         this.context = context;
     }
@@ -48,8 +50,8 @@ public class RecycleViewAdapter extends  RecyclerView.Adapter<RecycleViewAdapter
             public void onClick(View v) {
 
                 Intent intent = new Intent(context, subtasksDetails.class);
-                intent.putExtra("parent_id",tasks.get(position).getId());
-                Log.d("Adapter", tasks.get(position).getId() +" " + tasks.get(position).getTask()+" "+ position );
+                intent.putExtra("parent_id", tasks.get(position).getId());
+                Log.d("Adapter", tasks.get(position).getId() + " " + tasks.get(position).getTask() + " " + position);
                 context.startActivity(intent);
 
             }
@@ -57,21 +59,40 @@ public class RecycleViewAdapter extends  RecyclerView.Adapter<RecycleViewAdapter
         holder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                DatabaseHelper DB = new DatabaseHelper(context);
-                DB.deleteTask(tasks.get(position).getId());
-                tasks.remove(position);
-
-                Toast.makeText(context,
-                        "Hello Checked",
-                        Toast.LENGTH_SHORT).show();
+                if (isChecked)
+                    setup(position);
             }
         });
 
     }
+
+    private void setup(final int pos) {
+        AlertDialog.Builder builder =
+                new AlertDialog.Builder(context, R.style.AppCompatAlertDialogStyle);
+        builder.setTitle("Delete Task!! ");
+        builder.setMessage("this will delete this task and all its subtasks");
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+                DatabaseHelper DB = new DatabaseHelper(context);
+                DB.deleteTask(tasks.get(pos).getId());
+                tasks.remove(pos);
+                Toast.makeText(context,
+                        "Task deleted, Refresh to see",
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
+        builder.setNegativeButton("Cancel", null);
+        builder.show();
+
+    }
+
     @Override
     public void onAttachedToRecyclerView(RecyclerView recyclerView) {
         super.onAttachedToRecyclerView(recyclerView);
     }
+
     @Override
     public int getItemCount() {
         return tasks.size();
@@ -84,7 +105,7 @@ public class RecycleViewAdapter extends  RecyclerView.Adapter<RecycleViewAdapter
 
         PlaceViewHolder(View itemView) {
             super(itemView);
-            taskName = (TextView)itemView.findViewById(R.id.ListItem_TaskTV);
+            taskName = (TextView) itemView.findViewById(R.id.ListItem_TaskTV);
             checkBox = (CheckBox) itemView.findViewById(R.id.checkBox);
         }
     }

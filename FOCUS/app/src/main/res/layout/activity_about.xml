@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".Activties.About">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/Moic_Logo"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/moic" />
+
+        <TextView
+            android:id="@+id/first"
+            android:layout_marginTop="7dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Moic_Logo"
+            android:layout_centerHorizontal="true"
+            android:text="This Application Developed In MOIC CU "
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/second"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/first"
+            android:layout_marginTop="15dp"
+            android:text="About MOIC"
+            android:textSize="15sp" />
+
+
+        <TextView
+            android:id="@+id/third"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/second"
+            android:layout_margin="10dp"
+            android:text="@string/aboutMoic"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/fourth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/third"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="Developed By"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/fivth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/fourth"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:text="Mohammed Abd EL-Sattar "
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/_6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/fivth"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:text="IT committe member "
+            android:textSize="20sp" />
+
+
+        <TextView
+            android:id="@+id/_7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/_6"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:text="Designs By"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/_8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/_7"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:text="Mennatullah Fateen"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/_9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/_8"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:text="Graphic Design committee Member "
+            android:textSize="20sp" />
+
+
+        <TextView
+            android:id="@+id/_10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/_9"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:text="the idea and the supervsion By  "
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/_11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/_10"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:text="Maryam Mamdouh"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/_12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/_11"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:text="IT Committee Head"
+            android:textSize="20sp" />
+
+
+    </RelativeLayout>
+
+</ScrollView>

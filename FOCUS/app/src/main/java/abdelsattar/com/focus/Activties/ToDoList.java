@@ -25,6 +25,7 @@ public class ToDoList extends AppCompatActivity {
     FloatingActionButton fab;
     Toolbar toolbar;
     RecyclerView recyclerView;
+    RecycleViewAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +61,7 @@ public class ToDoList extends AppCompatActivity {
         LinearLayoutManager llm = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(llm);
 
-        RecycleViewAdapter adapter = new RecycleViewAdapter(this,tasks);
+        adapter = new RecycleViewAdapter(this,tasks);
         recyclerView.setAdapter(adapter);
     }
 
@@ -97,6 +98,7 @@ public class ToDoList extends AppCompatActivity {
                                 } else {
                                    long taskId = db.createTask(new Task(taskDialog.getText().toString()));
                                    tasks.add(new Task(taskId,taskDialog.getText().toString()) );
+                                    adapter.notifyDataSetChanged();
                                 }
                             }
                         })
