@@ -78,6 +78,7 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
                 DatabaseHelper DB = new DatabaseHelper(context);
                 DB.deleteTask(tasks.get(pos).getId());
                 tasks.remove(pos);
+                notifyItemRemoved(pos);
                 Toast.makeText(context,
                         "Task deleted, Refresh to see",
                         Toast.LENGTH_SHORT).show();

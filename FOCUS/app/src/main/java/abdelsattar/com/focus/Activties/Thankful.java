@@ -83,6 +83,7 @@ public class Thankful extends AppCompatActivity {
                                     long thankfulForID = db.createThankful(thankfulDialog.getText().toString());
                                     thankfulFor.add(new ThankfulFor(thankfulForID, thankfulDialog.getText().toString()));
                                     adapter.notifyDataSetChanged();
+
                                 }
                             }
                         })
