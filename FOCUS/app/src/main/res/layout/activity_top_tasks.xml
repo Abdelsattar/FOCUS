@@ -3,141 +3,158 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:background="@color/colorPrimaryLight"
     android:gravity="center"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="abdelsattar.com.focus.Activties.TopTasks">
+    tools:context="abdelsattar.com.focusII.Activties.TopTasks">
 
-    <TextView
-        android:id="@+id/TopThreeTv"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="50dp"
-        android:textColor="@color/white"
-        android:text="Top Three Tasks"
-        android:textSize="25sp"
-        android:textStyle="bold" />
-
-    <LinearLayout
-        android:id="@+id/linearLayoutOne"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/TopThreeTv">
-
+        android:layout_centerInParent="true"
+        android:gravity="center">
 
         <TextView
-            android:id="@+id/one"
+            android:id="@+id/TopThreeTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/TopThreeTv"
-            android:layout_margin="7dp"
-            android:text="1-"
+            android:layout_marginBottom="50dp"
+            android:text="Top Three Tasks"
             android:textColor="@color/white"
             android:textSize="25sp"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/Top3_one"
+        <LinearLayout
+            android:id="@+id/linearLayoutOne"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/TopThreeTv"
-            android:layout_margin="7dp"
-            android:layout_toRightOf="@+id/one"
-            android:text="Top 1"
-            android:textColor="@color/white"
-            android:textSize="25sp" />
+            android:layout_below="@+id/TopThreeTv">
 
-        <ImageView
-            android:id="@+id/EditOne"
+
+            <TextView
+                android:id="@+id/one"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/TopThreeTv"
+                android:layout_margin="7dp"
+                android:text="1-"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/Top3_one"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/TopThreeTv"
+                android:layout_margin="7dp"
+                android:layout_toRightOf="@+id/one"
+                android:text="Top 1"
+                android:textColor="@color/white"
+                android:textSize="25sp" />
+
+            <ImageView
+                android:id="@+id/EditOne"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/TopThreeTv"
+                android:layout_margin="7dp"
+                android:layout_toRightOf="@+id/Top3_one"
+                android:src="@android:drawable/ic_menu_edit" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayoutTwo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/TopThreeTv"
-            android:layout_margin="7dp"
-            android:layout_toRightOf="@+id/Top3_one"
-            android:src="@android:drawable/ic_menu_edit" />
+            android:layout_below="@+id/linearLayoutOne">
 
-    </LinearLayout>
+            <TextView
+                android:id="@+id/two"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/one"
+                android:layout_margin="7dp"
+                android:text="2-"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                android:textStyle="bold" />
 
-    <LinearLayout
-        android:id="@+id/linearLayoutTwo"
-        android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/Top3_two"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/Top3_one"
+                android:layout_margin="7dp"
+                android:layout_toRightOf="@+id/one"
+                android:text="Top 2"
+                android:textColor="@color/white"
+                android:textSize="25sp" />
+
+            <ImageView
+                android:id="@+id/EditTwo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/EditPersonOne"
+                android:layout_margin="7dp"
+                android:layout_toRightOf="@+id/_2ndPerson"
+
+                android:src="@android:drawable/ic_menu_edit" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayoutThree"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linearLayoutTwo">
+
+            <TextView
+                android:id="@+id/three"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/two"
+                android:layout_margin="7dp"
+                android:text="3-"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/Top3_three"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/_2ndPerson"
+                android:layout_margin="7dp"
+                android:layout_toRightOf="@+id/one"
+                android:text="Top 3"
+                android:textColor="@color/white"
+                android:textSize="25sp" />
+
+            <ImageView
+                android:id="@+id/EditThree"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/_2ndPerson"
+                android:layout_margin="7dp"
+                android:layout_toRightOf="@+id/_3rdPerson"
+                android:src="@android:drawable/ic_menu_edit" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/TopTasks_adView"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/linearLayoutOne">
-
-        <TextView
-            android:id="@+id/two"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/one"
-            android:layout_margin="7dp"
-            android:textColor="@color/white"
-            android:text="2-"
-            android:textSize="25sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/Top3_two"
-            android:textColor="@color/white"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/Top3_one"
-            android:layout_margin="7dp"
-            android:layout_toRightOf="@+id/one"
-            android:text="Top 2"
-            android:textSize="25sp" />
-
-        <ImageView
-            android:id="@+id/EditTwo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/EditPersonOne"
-            android:layout_margin="7dp"
-            android:layout_toRightOf="@+id/_2ndPerson"
-
-            android:src="@android:drawable/ic_menu_edit" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayoutThree"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/linearLayoutTwo">
-
-        <TextView
-            android:id="@+id/three"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:layout_below="@+id/two"
-            android:layout_margin="7dp"
-            android:text="3-"
-            android:textSize="25sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/Top3_three"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:layout_below="@+id/_2ndPerson"
-            android:layout_margin="7dp"
-            android:layout_toRightOf="@+id/one"
-            android:text="Top 3"
-            android:textSize="25sp" />
-
-        <ImageView
-            android:id="@+id/EditThree"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/_2ndPerson"
-            android:layout_margin="7dp"
-            android:layout_toRightOf="@+id/_3rdPerson"
-            android:src="@android:drawable/ic_menu_edit" />
-
-    </LinearLayout>
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/banner_ad_unit_id" />
 
 </RelativeLayout>

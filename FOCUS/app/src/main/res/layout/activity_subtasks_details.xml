@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="@dimen/activity_horizontal_margin"
-    tools:context="abdelsattar.com.focus.Activties.subtasksDetails">
+    tools:context="abdelsattar.com.focusII.Activties.subtasksDetails">
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"

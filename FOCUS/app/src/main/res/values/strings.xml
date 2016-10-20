@@ -1,11 +1,24 @@
 <resources>
     <string name="app_name">FOCUS</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_to_do_list">ToDoList</string>
+    <string name="title_activity_to_do_list">To-Do Tasks</string>
+
+    <string name="app_id_example">ca-app-pub-3940256099942544~3347511713</string>
+    <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="banner_ad_unit_id2">ca-app-pub-3940256099942544/6300978111</string>
+
+    <string name="app_id_for_prod">ca-app-pub-5656278683831171~8204242441</string>
+    <string name="contact_ad_id_for_prod">ca-app-pub-5656278683831171/8843370847</string>
 
     <string name="aboutMoic">First student activity in the World that simulates
         Organization Of Islamic Co-operation in Cairo University by Egyptian students #MOIC ..A step to revive Ummah
         http://www.MoicEgypt.com/</string>
+    <string name="contact">contact</string>
+
+
+    <string name="top3">Top 3</string>
+    <string name="thankful">Thankful</string>
+    <string name="todo">ToDO</string>
 
 
 </resources>

@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "276364005747",
+    "firebase_url": "https://admob-app-id-8204242441.firebaseio.com",
+    "project_id": "admob-app-id-8204242441",
+    "storage_bucket": "admob-app-id-8204242441.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:276364005747:android:07198e0b9873b367",
+        "android_client_info": {
+          "package_name": "abdelsattar.com.focusII"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "276364005747-t236padt9hf359pusdika1aefhvmnre5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJIwFHjjatOJVo9ix-UYqjg8nSeTBrZPI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

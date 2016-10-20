@@ -6,4 +6,9 @@
     <color name="colorPrimary">#207A82</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#c0c4bd</color>
+
+
+    <color name="green_light">#80C140</color>
+
+
 </resources>

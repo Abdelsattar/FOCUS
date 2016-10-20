@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -22,14 +23,38 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_to_do_list" />
+    <include
+        android:id="@+id/include"
+        layout="@layout/content_to_do_list" />
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/Tasks_fab"
+
+    <!--<LinearLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_gravity="bottom"-->
+    <!--&gt;-->
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/Todo_adView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        android:src="@android:drawable/ic_input_add" />
+        android:layout_gravity="start|bottom"
+        android:layout_margin="16dp"
+        android:paddingRight="16dp"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/banner_ad_unit_id" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/Todo_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|start"
+        android:layout_margin="16dp"
+        android:layout_weight=".25"
+        android:src="@android:drawable/ic_input_add"
+        app:fabSize="normal"
+        app:layout_anchor="@+id/include"
+        app:layout_anchorGravity="bottom|right" />
+    <!--</LinearLayout>-->
 
 </android.support.design.widget.CoordinatorLayout>
