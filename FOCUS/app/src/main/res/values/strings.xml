@@ -13,12 +13,12 @@
     <string name="aboutMoic">First student activity in the World that simulates
         Organization Of Islamic Co-operation in Cairo University by Egyptian students #MOIC ..A step to revive Ummah
         http://www.MoicEgypt.com/</string>
-    <string name="contact">contact</string>
+    <string name="contact">Contact</string>
 
 
     <string name="top3">Top 3</string>
     <string name="thankful">Thankful</string>
-    <string name="todo">ToDO</string>
+    <string name="todo">ToDo</string>
 
 
 </resources>

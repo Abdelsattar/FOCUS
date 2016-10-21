@@ -117,7 +117,6 @@ public class Constants {
             Log.d("ToDo Watchlist", todo.getSubTask());
         }
 
-        // Deleting a ToDo
         Log.d("Delete ToDo", "Deleting a Todo");
         Log.d("Tag Count", "Tag Count Before Deleting: " + db.getTaskCount());
 

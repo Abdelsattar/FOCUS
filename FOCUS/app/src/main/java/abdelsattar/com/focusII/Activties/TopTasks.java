@@ -87,11 +87,15 @@ public class TopTasks extends AppCompatActivity implements View.OnClickListener 
 
         AdView mAdView;
         // Initialize the Mobile Ads SDK.
+        // TODO change the id to production
+
         MobileAds.initialize(getApplicationContext(), getString(R.string.app_id_example));
 
         // Gets the ad view defined in layout/ad_fragment.xml with ad unit ID set in
         // values/strings.xml.
         mAdView = (AdView) findViewById(R.id.TopTasks_adView);
+        mAdView.setVisibility(View.INVISIBLE);
+
 
         // Create an ad request. Check your logcat output for the hashed device ID to
         // get test ads on a physical device. e.g.

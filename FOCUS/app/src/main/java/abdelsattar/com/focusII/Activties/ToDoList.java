@@ -58,8 +58,11 @@ public class ToDoList extends AppCompatActivity {
 
     private void setupGoogleAds() {
 
+        // TODO change the id to production
         MobileAds.initialize(getApplicationContext(), getString(R.string.app_id_example));
         mAdView = (AdView) findViewById(R.id.Todo_adView);
+        mAdView.setVisibility(View.INVISIBLE);
+
 
         // Create an ad request. Check your logcat output for the hashed device ID to
         // get test ads on a physical device. e.g.

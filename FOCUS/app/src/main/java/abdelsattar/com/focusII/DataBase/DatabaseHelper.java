@@ -46,7 +46,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     /**
-     * TODO TRUE
      * Creating a task
      */
     public long createTask(Task task) {
@@ -62,7 +61,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
     /**
-     * TODO TRUE
      * get single task
      */
     public Task getTask(long taskID) {
@@ -86,7 +84,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     /**
-     * TODO TRUE
      * getting all tasks
      */
     public ArrayList<Task> getAllTasks() {
@@ -112,7 +109,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     /**
-     * TODO TRUE
      * getting task count
      */
     public int getTaskCount() {
@@ -128,7 +124,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     /**
-     * TODO TRUE
      * Updating a task
      */
     public int updateTask(Task task) {
@@ -143,7 +138,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     /**
-     * TODO TRUE
      * Deleting a task
      */
     public void deleteTask(long taskID) {
@@ -287,7 +281,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
     /**
-     * TODO TRUE
      * Creating a task
      */
     public long createThankful(String thankfulFor) {
@@ -303,7 +296,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
     /**
-     * TODO TRUE
      * get single task
      */
     public Task getThankful(long taskID) {
@@ -327,7 +319,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     /**
-     * TODO TRUE
      * getting all tasks
      */
     public ArrayList<ThankfulFor> getAllThankfulFor() {
@@ -353,7 +344,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     /**
-     * TODO TRUE
      * getting task count
      */
     public int getThankfulForCount() {
@@ -369,7 +359,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     /**
-     * TODO TRUE
      * Updating a task
      */
     public int updateThankful(ThankfulFor thankful) {
@@ -384,7 +373,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     /**
-     * TODO TRUE
      * Deleting a task
      */
     public void deleteThankful(long taskID) {
